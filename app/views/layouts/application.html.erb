@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Elegant Man</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= favicon_link_tag %>
+</head>
+<body>
+
+<div id = "banner">
+	<%=image_tag("logo.png", :alt => "Logo Missing", :size => "200x80") %>
+	
+</div>
+
+<div id="nav" align="center">
+	<ul>
+			<li><%=link_to "Categories", categories_path  %></li>
+			<li><%=link_to "Articles", articles_path  %></li>
+			<li><%=link_to "Fashion News", '#'  %></li>
+			<li><%=link_to "About", '#'  %></li>
+			<li><%=mail_to "#", 'Contact us'  %></li>
+
+			
+	</ul>
+</div>
+
+
+<%= yield %>
+
+</body>
+</html>

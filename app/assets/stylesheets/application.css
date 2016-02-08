@@ -1,0 +1,106 @@
+
+ #banner {
+  background: #808080;
+  padding: 10px;
+  border-bottom: 2px solid;
+  font: small-caps 40px/40px "Times New Roman", serif;
+  color: #ffffff;
+  text-align: center;
+
+  img {
+    float: center;
+  }
+}
+
+
+#columns {
+  background: yellow;
+
+  #main {
+    margin-left: 17em;
+    padding: 1em;
+    background: white;
+  }
+
+//#START:side
+  #side {
+    float: left;
+    padding: 1em 2em;
+    width: 13em;
+    background: yellow;
+
+/* START_HIGHLIGHT */
+    form, div {
+      display: inline;
+    }  
+ 
+    input {
+      font-size: small;
+    }
+
+    #cart {
+      font-size: smaller;
+      color:     black;
+
+      table {
+        border-top:    1px dotted #595;
+        border-bottom: 1px dotted #595;
+        margin-bottom: 10px;
+      }
+    }
+
+/* END_HIGHLIGHT */
+    ul {
+      padding: 0;
+
+      li {
+        list-style: none;
+
+        a {
+          color: #bfb;
+          font-size: small;
+        }
+      }
+    }
+  }
+//#END:side
+} #end columns
+
+#nav {
+  float: center;
+  color: #ffffff;
+}
+
+#nav {
+  background-color: #3A3A3A;
+  padding: 0 0.7em;
+  white-space: nowrap;
+  color: #ffffff;
+}
+
+#nav ul {
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+}
+
+#nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0.2em 0;
+  color: #ffffff;
+}
+
+#nav ul li a {
+  padding: 0 5px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+#nav ul li a:visited {
+  color: #ffffff;
+}
+
+#nav ul li a:hover {
+  text-decoration: underline;
+  }
