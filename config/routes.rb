@@ -1,21 +1,29 @@
 Rails.application.routes.draw do
   
-  
+  resources :comments
+  resources :users
   get 'pages/home'
 
   get 'pages/about'
 
   resources :categories
-  resources :articles
+  resources :articles do
+	resources :comments
+	end
   
-  
+  controller :sessions do
+	get 'login'=> :new
+	post 'login'=> :create
+	get 'logout'=> :destroy
+	delete 'logout'=> :destroy
+	end
   
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'welcome#index'
+   root 'pages#home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

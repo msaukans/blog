@@ -1,29 +1,68 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
 
-<p>
-  <strong>Posted on:</strong>
-  <%= @article.posted_on %>
-</p>
+<table align="center">
+  <tr>
+    <th>
+		<strong>Title:</strong>
+		<%= @article.title %>
+	</th>
+  </tr>
+  <tr>
+    <td>
+		<strong>Posted on:</strong>
+		<%= @article.posted_on %>
+	</td>
+  </tr>
+  <tr>
+    <td>
+		<%= image_tag @article.featured_img %>
+	</td>
+  </tr>
+  <tr>
+    <td>
+		<strong>Category:</strong>
+		<%= @article.category %>
+	</td>
+  </tr>
+  <tr>
+    <td>
+		<strong>Content:</strong>
+		<%= @article.content %>
+	</td>
+  </tr>
+</table>
 
-<p>
-  <strong>Featured img:</strong>
-  <%= @article.featured_img %>
-</p>
-<br>
-<p>
-  <strong>Content:</strong>
-  <%= @article.content %>
-</p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @article.category %>
-</p>
+<h2>Star Rating and comment</h2>
+	<%= form_for([@article, Comment.new]) do |f| %>
+	
+	<h3><%= f.label :stars %>
+	<% stars = [1,2,3,4,5] %>
+	<% stars.each do |star| %>
+		<%= f.radio_button :stars, star %> <%= star %>
+	<% end %>
+	</h3></br>
+	<%= f.text_area :content, :rows =>4, :cols => 40 %>
+	<div class = "actions">
+		<%= f.submit "Post a comment" %>
+	</div>
+<% end %>
+	
+<% if @article.comments.empty? %>
+	<h3>You are the first to comment</h3>
+<% else %>
+	<h2>What others felt about this:</h2>
+	<% @article.comments.reverse.each do |comment| %>
+		<p><%= comment.content %>
+		Posted <%= time_ago_in_words(comment.created_at) %> ago by
+		<%=comment.user.name  %></p>
+	<% end %>
+	<h3>Star Rating</h3>
+	<p>		<% number_with_precision( @article.average_stars, precision: 0) %></p>
+<% end %>
+</td>
+</tr>
+</table>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>

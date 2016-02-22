@@ -1,14 +1,13 @@
 <p id="notice"><%= notice %></p>
+<%= link_to 'New Article', new_article_path %>
+<h1 align="center">Articles</h1>
 
-<h1 align="center">Listing Articles</h1>
-<%=will_paginate @movies  %>
-<table align="center">
+<table align="center"  cellpadding="10">
   <thead>
     <tr>
       <th>Title</th>
-      <th>Posted on</th>
       <th>Featured img</th>
-      <th>Content</th>
+	  <th>Posted on</th>
       <th>Category</th>
       <th colspan="3"></th>
     </tr>
@@ -18,9 +17,8 @@
     <% @articles.each do |article| %>
       <tr>
         <td><%= article.title %></td>
+        <td><%= image_tag article.featured_img, height: '150', width: '250'%></td>
         <td><%= article.posted_on %></td>
-        <td><%= article.featured_img %></td>
-        <td><%= article.content %></td>
         <td><%= article.category %></td>
         <td><%= link_to 'Show', article %></td>
         <td><%= link_to 'Edit', edit_article_path(article) %></td>
@@ -32,4 +30,9 @@
 
 <br>
 
-<%= link_to 'New Article', new_article_path %>
+<%=will_paginate @movies  %>
+
+
+
+
+

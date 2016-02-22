@@ -11,37 +11,33 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field" align="center">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
-  
-  <div class="field">
+  <br>
+  <div class="field"  align="center">
     <%= f.label :posted_on %><br>
-    <%= f.date_select :posted_on %>
+    <%= f.date_field :posted_on %>
   </div>
-  
-  <div class="field">
+  <br>
+  <div class="field"  align="center">
     <%= f.label :featured_img %><br>
     <%= f.text_field :featured_img %>
   </div>
-  
-  <div class="field">
+  <br>
+  <div class="field"  align="center">
     <%= f.label :content %><br>
     <%= f.text_field :content %>
   </div>
-  
-  <div class="field">
-    <%= f.label :category %><br>
-    <%= f.number_field :category %>
-  </div>
-  
-  <div class="field">
+  <br>
+    
+  <div class="field"  align="center">
     <%= f.label :category_id %><br>
-	<%= f.collection_select:category_id,Category.all,:id, :name%>
+	<%= f.collection_select:category_id,Category.all,:id, :title%>
   </div>
-  
-  <div class="actions">
+  <br>
+  <div class="actions"  align="center">
     <%= f.submit %>
   </div>
 <% end %>
